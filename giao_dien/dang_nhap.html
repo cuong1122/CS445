@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập - Phòng Trọ</title>
+    
+    <!-- Nhúng Font Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Nhúng file CSS (giữ nguyên đường dẫn) -->
+    <link rel="stylesheet" href="/tai-nguyen/css/style.css">
+</head>
+<body>
+
+<main class="shell">
+    <!-- Cột Trái: Giới thiệu -->
+    <aside class="intro">
+        <a class="brand" href="#" aria-label="Trang chủ">
+            Phòng Trọ<span class="dot">.</span>
+        </a>
+
+        <div class="intro-copy">
+            <p class="eyebrow">Chào mừng trở lại</p>
+            
+            <p class="intro-lead">Đăng nhập để tiếp tục quản lý phòng trọ, theo dõi hợp đồng và kết nối với cộng đồng người thuê một cách dễ dàng nhất.</p>
+
+            <div class="benefits">
+                <div class="benefit">
+                    <strong>Truy cập tức thì</strong>
+                    <span>Xem thông tin phòng, hóa đơn và hợp đồng ngay khi đăng nhập.</span>
+                </div>
+                <div class="benefit">
+                    <strong>Bảo mật tuyệt đối</strong>
+                    <span>Dữ liệu cá nhân và thông tin giao dịch luôn được bảo vệ.</span>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">© 2024 Phòng Trọ. Bảo lưu mọi quyền.</p>
+    </aside>
+
+    <!-- Cột Phải: Form Đăng Nhập -->
+    <section class="form-panel">
+        <div class="form-heading">
+            <h2>Đăng Nhập</h2>
+            <p>Vui lòng nhập thông tin để tiếp tục.</p>
+        </div>
+
+        <form id="form-dang-nhap" onsubmit="xuLyDangNhap(event)">
+            <!-- Sử dụng class login-grid để ép form thành 1 cột -->
+            <div class="form-grid login-grid">
+                <div class="form-group">
+                    <label for="login-ten">Tên đăng nhập</label>
+                    <input type="text" id="login-ten" required placeholder="Nhập tên đăng nhập">
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-mat-khau">Mật khẩu</label>
+                    <input type="password" id="login-mat-khau" required placeholder="Nhập mật khẩu">
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Đăng Nhập</button>
+        </form>
+
+        <div class="link-chuyen-trang">
+            Chưa có tài khoản? <a href="/dang-ky">Đăng ký ngay</a>
+        </div>
+
+        <div id="ket-qua"></div>
+    </section>
+</main>
+
+<!-- Nhúng file JS (giữ nguyên đường dẫn) -->
+<script src="/tai-nguyen/js/xac_thuc.js"></script>
+</body>
+</html>

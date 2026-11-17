@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Phòng - Chủ Trọ</title>
+    <link rel="stylesheet" href="/tai-nguyen/css/style.css">
+    <style>
+        body { align-items: flex-start; background-color: #f4f7f6; }
+        .navbar { width: 100%; background: #343a40; color: white; padding: 15px 30px; display: flex; justify-content: space-between; box-sizing: border-box; }
+        .container { max-width: 900px; margin-top: 30px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        .header-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .btn { padding: 8px 15px; border: none; border-radius: 4px; cursor: pointer; color: white; text-decoration: none; font-size: 14px;}
+        .btn-primary { background: #007bff; }
+        .btn-secondary { background: #6c757d; }
+        .btn-danger { background: #dc3545; }
+        #form-dang-tin { display: none; background: #f9f9f9; padding: 20px; border: 1px solid #ddd; border-radius: 5px; margin-bottom: 20px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Quản Lý Phòng Trọ</h2>
+    <div>
+        <a href="/dashboard" class="btn btn-secondary">Về Dashboard</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="header-actions">
+        <h3>Danh sách phòng của bạn</h3>
+        <button class="btn btn-primary" onclick="toggleForm()">+ Đăng Tin Mới</button>
+    </div>
+
+    <!-- FORM ĐĂNG TIN -->
+    <div id="form-dang-tin">
+        <h4>Thông tin phòng mới</h4>
+        <form id="form-phong" onsubmit="xuLyDangTin(event)">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Tiêu đề tin đăng (*)</label>
+                    <input type="text" id="tieu-de" required minlength="10">
+                </div>
+                <div class="form-group">
+                    <label>Địa chỉ (*)</label>
+                    <input type="text" id="dia-chi" required>
+                </div>
+                <div class="form-group">
+                    <label>Loại phòng (*)</label>
+                    <select id="loai-phong" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Khu vực (*)</label>
+                    <select id="khu-vuc" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Giá thuê (VNĐ) (*)</label>
+                    <input type="number" id="gia-thue" required>
+                </div>
+                <div class="form-group">
+                    <label>Tiền cọc (VNĐ)</label>
+                    <input type="number" id="tien-coc" value="0">
+                </div>
+                <div class="form-group">
+                    <label>Diện tích (m2) (*)</label>
+                    <input type="number" step="0.1" id="dien-tich" required>
+                </div>
+                <div class="form-group">
+                    <label>Số người tối đa</label>
+                    <input type="number" id="so-nguoi">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Mô tả thêm</label>
+                <textarea id="mo-ta" rows="3" style="width: 100%; padding: 8px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Gửi Đăng Tin (Chờ duyệt)</button>
+            <button type="button" class="btn btn-secondary" onclick="toggleForm()">Hủy</button>
+        </form>
+    </div>
+
+    <!-- BẢNG DANH SÁCH -->
+    <table>
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Tiêu đề</th>
+                <th>Giá thuê</th>
+                <th>Diện tích</th>
+                <th>Trạng thái</th>
+            </tr>
+        </thead>
+        <tbody id="danh-sach-phong">
+            <tr><td colspan="5">Đang tải dữ liệu...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="/tai-nguyen/js/quan_ly_phong.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Quản Lý Phòng Trọ</title>
+    <link rel="stylesheet" href="/tai-nguyen/css/style.css">
+    <style>
+        /* CSS riêng cho dashboard */
+        body { align-items: flex-start; background-color: #e9ecef; }
+        .navbar { width: 100%; background: #343a40; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
+        .navbar h1 { margin: 0; font-size: 20px; }
+        .container-dash { max-width: 800px; margin-top: 40px; text-align: center; }
+        .role-badge { background: #007bff; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        .action-cards { display: flex; gap: 20px; justify-content: center; margin-top: 30px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); flex: 1; cursor: pointer; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+        .card h3 { color: #007bff; margin-top: 0; }
+        .btn-logout { background: #dc3545; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; }
+        .btn-logout:hover { background: #c82333; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Hệ Thống Quản Lý Phòng Trọ</h1>
+    <div>
+        <span id="user-name">Đang tải...</span>
+        <button class="btn-logout" onclick="dangXuat()">Đăng xuất</button>
+    </div>
+</div>
+
+<div class="container container-dash">
+    <h2>Chào mừng trở lại!</h2>
+    <div class="role-badge" id="user-role">Vai trò: ...</div>
+
+    <!-- Khu vực dành cho Chủ Trọ (LANDLORD) -->
+    <div id="khu-vuc-landlord" class="hidden">
+        <div class="action-cards">
+            <div class="card" onclick="window.location.href='/quan-ly-phong'">
+                <h3>Quản lý Phòng</h3>
+                <p>Đăng tin, sửa, xóa phòng trọ của bạn</p>
+            </div>
+            <div class="card">
+                <h3>Quản lý Hợp Đồng</h3>
+                <p>Xem và cập nhật hợp đồng với người thuê</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khu vực dành cho Người Thuê (TENANT) -->
+    <div id="khu-vuc-tenant" class="hidden">
+        <div class="action-cards">
+            <div class="card">
+                <h3>Tìm Kiếm Phòng</h3>
+                <p>Tìm phòng trọ phù hợp với nhu cầu</p>
+            </div>
+            <div class="card">
+                <h3>Lịch Hẹn Của Tôi</h3>
+                <p>Xem lại các lịch hẹn xem phòng đã đặt</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Khu vực dành cho Admin -->
+    <div id="khu-vuc-admin" class="hidden">
+        <div class="action-cards">
+            <div class="card">
+                <h3>Duyệt Bài Đăng</h3>
+                <p>Phê duyệt các tin đăng phòng mới</p>
+            </div>
+            <div class="card">
+                <h3>Quản Lý Người Dùng</h3>
+                <p>Khóa hoặc xóa tài khoản vi phạm</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/tai-nguyen/js/dashboard.js"></script>
+</body>
+</html>
